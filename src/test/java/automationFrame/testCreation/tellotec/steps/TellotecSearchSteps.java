@@ -2,7 +2,7 @@ package automationFrame.testCreation.google.steps;
 
 
 import automationFrame.engine.selenium.DriverFactory;
-import automationFrame.testCreation.google.pages.GooglePages;
+import automationFrame.testCreation.google.pages.TellotecPages;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,15 +10,15 @@ import org.testng.Assert;
 
 
 
-public class GoogleSearchSteps  {
+public class TellotecSearchSteps {
 
-    protected GooglePages google;
+    protected TellotecPages google;
 
 
-    @Given("that I have gone to the Google page")
-    public void that_i_have_gone_to_the_google_page() {
-        google = new GooglePages(DriverFactory.getDriver());
-        google.navigateToGoogle();
+    @Given("that I have gone to the Tellotec page")
+    public void that_i_have_gone_to_the_tellotec_page() {
+        google = new TellotecPages(DriverFactory.getDriver());
+        google.navigateToTellotec();
     }
 
     @When("I add {string} to the search box")
@@ -31,14 +31,14 @@ public class GoogleSearchSteps  {
     @When("click the Search Button")
     public void click_the_search_button() {
 
-        google.clickGoogleSearch();
+        google.clickTellotecSearch();
     }
 
 
     @Then("the {string} should be mentioned in the results")
     public void should_be_mentioned_in_the_results(String nameAnimal) {
 
-        google = new GooglePages(DriverFactory.getDriver());
+        google = new TellotecPages(DriverFactory.getDriver());
         String searchResult = google.getTitle();
         Assert.assertTrue(searchResult.contains(nameAnimal));
 
