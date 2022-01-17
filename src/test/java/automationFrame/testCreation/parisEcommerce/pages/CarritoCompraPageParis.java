@@ -1,6 +1,7 @@
 package automationFrame.testCreation.parisEcommerce.pages;
 
 import automationFrame.engine.selenium.SeleniumBase;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 public class CarritoCompraPageParis extends SeleniumBase {
@@ -14,12 +15,6 @@ public class CarritoCompraPageParis extends SeleniumBase {
 
     //TestCase01 Locators
     String btnMasCantidadProduct = "//*[@id='GTM_cart_quantity-mas']";
-/*
-    public void clickAumentarProduct() throws InterruptedException {
-        clickElement(btnMasCantidadProduct);
-        Thread.sleep(300);clickElement(btnMasCantidadProduct);
-
-    }*/
 
 
 
@@ -52,13 +47,17 @@ public class CarritoCompraPageParis extends SeleniumBase {
     }
 
     public void writeCuponInvalid(){
-        write(fieldCupon,"123433");
-        clickElement(btnAplicarfieldCupon);
+        writeWithEnter(fieldCupon,"1234");
+
     }
 
     public boolean validateTextErrorCupon(){
         isDisplayed(textInvalidCupon);
         return true;
+    }
+
+    public String textInvalid(){
+        return textFromElement(textInvalidCupon);
     }
 
     public void agregadoDeProducto(Integer num) throws InterruptedException {
@@ -75,11 +74,16 @@ public class CarritoCompraPageParis extends SeleniumBase {
     //TestCase 03
 
     String btnEditarGarantia = "//*[contains(@class, 'link-add')]/a";
-    String checkElegirGarantia = "//*[contains(@class, 'warranty-modal__form')]/div[2]/ul/li[9]/label/p/i";
+    String checkElegirGarantia = "//*[contains(@class, 'warranty-modal__form')]/div[2]/ul/li[8]/label/p/i";
+    String precioProducto = "//*[contains(@class, 'box-precios-carro')]//*[contains(@class, 'price__inner')]/div[2]/div";
 
     public void agregarGarantia(){
         clickElement(btnEditarGarantia);
         clickElement(checkElegirGarantia);
+    }
+
+    public String validarSumaProductoMasGarantia(){
+        return textFromElement(precioProducto);
     }
 
 }

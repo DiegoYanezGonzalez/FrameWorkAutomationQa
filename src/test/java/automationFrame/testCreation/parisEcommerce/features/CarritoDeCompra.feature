@@ -10,7 +10,7 @@ Feature: Carrito de Compra
 
   @01
   Scenario: CA-01 - Límite de Stock de un producto
-  #Given que el cliente está el en carrito de compras con un producto
+    #Given que el cliente está el en carrito de compras con un producto
     Then el cliente aumenta la cantidad a pedir del producto haciendo click en el botón mas del producto a un número mayor de 20
     When el botón mas se deshabilita.
 
@@ -22,6 +22,6 @@ Feature: Carrito de Compra
 
   @03
   Scenario: CA-03 - Código promocional inválido
- # Given que el cliente está en el carrito con varios productos a comprar
+    # Given que el cliente está en el carrito con varios productos a comprar
     When el cliente introduce un número de cupón inválido y hace clic en el botón aplicar
     Then se muestra un mensaje de error cerca del campo que dice Código de Cupón Inválido

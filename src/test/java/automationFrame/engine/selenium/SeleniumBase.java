@@ -9,11 +9,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-
-
 import java.util.List;
 import java.util.Set;
+
 public class SeleniumBase {
 
     protected static WebDriver driver;
@@ -63,6 +61,13 @@ public class SeleniumBase {
     public void write(String locator, String textWrite) {
         Find(locator).clear();
         Find(locator).sendKeys(textWrite);
+    }
+
+    //write with enter
+    public void writeWithEnter(String locator, String textWrite) {
+        Find(locator).clear();
+        Find(locator).sendKeys(textWrite);
+        Find(locator).sendKeys(Keys.ENTER);
     }
 
 
@@ -125,9 +130,9 @@ public class SeleniumBase {
     }
 
 
+
+
     public boolean elementIsDisplayed(String locator) {
-
-
         return Find(locator).isDisplayed();
 
 
@@ -138,4 +143,112 @@ public class SeleniumBase {
         return Find(locator).isDisplayed();
 
     }
+
+
+    //Wrappers Selenium
+
+    /**
+     * funcion wrapper para obtener un WebElement
+     *
+     * @param locator: Objeto By de la Page
+     * @return WebElement
+     */
+    public WebElement findElement(By locator) {
+        return driver.findElement(locator);
+    }
+
+    /**
+     * funcion wrapper para obtener una Lista de WebElement
+     *
+     * @param locator: Objeto By de la Page
+     * @return Lista de WebElement
+     */
+    public List<WebElement> findElements(By locator) {
+        return driver.findElements(locator);
+    }
+
+    /**
+     * funcion que obtiene el texto de un objeto WebElement
+     *
+     * @param locator: Objeto By del repositorio
+     * @return String     *
+     */
+    public String getText(By locator) {
+        return driver.findElement(locator).getText();
+    }
+
+    public String getText(WebElement element){
+        return element.getText();
+    }
+
+    /**
+     * funcion que escribe un texto enviado a un objeto WebElement
+     *
+     * @param inputText : texto a escribir
+     * @param locator   : Objeto By del repositorio
+     */
+    public void type(String inputText, By locator) throws InterruptedException {
+        driver.findElement(locator).sendKeys(inputText);
+    }
+
+    public void sendEnter(By locator){
+        driver.findElement(locator).sendKeys(Keys.ENTER);
+    }
+
+    /**
+     * funcion que hace 1 click en un WebElement
+     *
+     * @param locator : Objeto By del repositorio
+     */
+
+    public void click(String locator){
+        WebDriverWait espera = new WebDriverWait(driver, 2);
+        espera.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+        driver.findElement(By.xpath(locator)).click();
+    }
+
+    /**
+     * funcion que cierra el Objeto WebDriver
+     */
+    public void closeDriver() {
+        driver.close();
+    }
+
+    /**
+     * funcion para saber si un WebElement esta desplegado en pantalla
+     *
+     * @param locator : Objeto By del repositorio
+     * @return : verdadero o falso
+     */
+    public Boolean isDisplayed(String locator) {
+        try {
+            return driver.findElement(By.xpath(locator)).isDisplayed();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    /**
+     * funcion para Navegar a un URL
+     *
+     * @param url : String con URL
+     */
+    public void goToUrl(String url) {
+        driver.get(url);
+    }
+
+
+
+    public void validacionText(By localizador, String text){
+        Assert.assertEquals(text, driver.findElement(localizador).getText());
+    }
+
+
+
+    //Espera explicita hasta elemento visible
+    public void esperarElementoVisible (int tiempo,By localizador){
+        WebDriverWait espera = new WebDriverWait(driver,tiempo);
+        espera.until(ExpectedConditions.visibilityOfElementLocated(localizador));
+    }
+
 }

@@ -39,7 +39,7 @@ public class CarritoDeCompraParisSteps {
     @Then("se muestra un mensaje de error cerca del campo que dice Código de Cupón Inválido")
     public void se_muestra_un_mensaje_de_error_cerca_del_campo_que_dice_código_de_cupón_inválido() {
         Assert.assertTrue(pageParis.validateTextErrorCupon());
-        pageParis.validateTextErrorCupon();
+        Assert.assertEquals( "Código de cupón inválido",pageParis.textInvalid());
     }
 
 
@@ -57,5 +57,11 @@ public class CarritoDeCompraParisSteps {
     @When("el cliente agrega la garantia de daño accidental")
     public void el_cliente_agrega_la_garantia_de_daño_accidental() {
         pageParis.agregarGarantia();
+    }
+
+    @Then("el total a pagar incluye el monto a pagar del producto mas el valor de la garantía del producto")
+    public void el_total_a_pagar_incluye_el_monto_a_pagar_del_producto_mas_el_valor_de_la_garantía_del_producto() {
+        //pageParis.validarSumaProductoMasGarantia();
+        Assert.assertEquals("$549.990",pageParis.validarSumaProductoMasGarantia());
     }
 }
