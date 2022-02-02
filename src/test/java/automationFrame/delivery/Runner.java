@@ -5,8 +5,8 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features = {"src/test/java/automationFrame/testCreation/google/features"},
-        glue = {"automationFrame.testCreation.google.steps","automationFrame.engine.bdd"},
+        features = {"src/test/java/automationFrame/testCreation/google/features/mercadoLibre"},
+        glue = {"automationFrame.testCreation.google.steps.mercadoLibre","automationFrame.engine.bdd"},
         plugin = {"pretty","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
                 "timeline:test-output-thread"},
         tags = ""

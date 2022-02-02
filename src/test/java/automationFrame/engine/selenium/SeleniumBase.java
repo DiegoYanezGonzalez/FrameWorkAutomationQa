@@ -138,4 +138,5 @@ public class SeleniumBase {
         return Find(locator).isDisplayed();
 
     }
+
 }

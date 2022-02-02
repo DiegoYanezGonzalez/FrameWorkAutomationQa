@@ -1,8 +1,8 @@
-package automationFrame.testCreation.google.steps;
+package automationFrame.testCreation.google.steps.google;
 
 
 import automationFrame.engine.selenium.DriverFactory;
-import automationFrame.testCreation.google.pages.GooglePages;
+import automationFrame.testCreation.google.pages.google.GooglePages;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

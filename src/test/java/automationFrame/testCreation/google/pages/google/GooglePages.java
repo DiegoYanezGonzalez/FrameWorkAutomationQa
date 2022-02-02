@@ -1,4 +1,4 @@
-package automationFrame.testCreation.google.pages;
+package automationFrame.testCreation.google.pages.google;
 
 import automationFrame.engine.selenium.SeleniumBase;
 import org.openqa.selenium.WebDriver;
