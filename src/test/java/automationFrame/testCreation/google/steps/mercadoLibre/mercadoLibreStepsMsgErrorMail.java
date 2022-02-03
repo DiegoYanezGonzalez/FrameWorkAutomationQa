@@ -59,10 +59,11 @@ public class mercadoLibreStepsMsgErrorMail {
             soyNuevoClick.clickSoyNuevo();
     }
 
-    @Then("al agregar el {string} el {string} el {string} invalido y el {string} se muestra un mensaje error")
+    @And("al agregar el {string} el {string} el {string} invalido y el {string}")
     public void al_agregar_el_mail_invalido_se_muestra_un_mensaje_error(String user, String apellido, String mail, String pass) throws InterruptedException {
             mailInvalido = new MailInvalidoFormulario(DriverFactory.getDriver());
 
+            Thread.sleep(3000);
             mailInvalido.nameWriteInField(user);
 
             mailInvalido.apellidoWriteInField(apellido);
@@ -74,8 +75,11 @@ public class mercadoLibreStepsMsgErrorMail {
             mailInvalido.clickCheckAccepted();
 
             mailInvalido.clickContinuarFormulario();
+    }
 
-          // Assert.assertEquals("Usa el formato nombre@ejemplo.com",mailInvalido.validaTextError());
+    @Then("se muestra un mensaje error")
+    public void se_muestra_un_mensaje_error() {
+        Assert.assertEquals("Usa el formato nombre@ejemplo.com",mailInvalido.validaTextError());
 
     }
 

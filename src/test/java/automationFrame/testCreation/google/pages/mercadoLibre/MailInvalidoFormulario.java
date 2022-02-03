@@ -9,7 +9,7 @@ public class MailInvalidoFormulario extends SeleniumBase {
     private String apellidoText = "//*[@id='lastName']";
     private String mailText = "//*[@id='email']";
     private String contrasenaText = "//*[@id='password']";
-    private String checkAccept = "//*[@id=\"tyc_checkbox\"]";
+    private String checkAccept = "//*[@id=\"root-app\"]/div/div/form/div[1]/div[4]/label[1]/span[2]";
     private String btnContinuar = "//*[contains(@class, 'andes-button')]";
     private String textError = "//span[contains(text(), 'Usa el formato nombre@ejemplo.com')]";
 
