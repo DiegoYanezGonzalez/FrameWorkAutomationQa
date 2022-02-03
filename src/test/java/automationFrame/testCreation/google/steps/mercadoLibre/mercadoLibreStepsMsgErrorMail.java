@@ -35,10 +35,10 @@ public class mercadoLibreStepsMsgErrorMail {
         buttonsearchProduct.clickProductSearch();
     }
 
-    @And("selecciono marca Hp")
-    public void selecciono_marca_hp() {
+    @And("selecciono marca {string}")
+    public void selecciono_marca_hp(String marca) {
         marcaProductClick = new ElejirMarcaMLPage(DriverFactory.getDriver());
-        marcaProductClick.clickProductMarca();
+        marcaProductClick.clickProductMarca(marca);
     }
 
     @And("selecciono la primera opcion de los resultados")

@@ -5,13 +5,14 @@ import org.openqa.selenium.WebDriver;
 
 public class ElejirMarcaMLPage extends SeleniumBase {
 
-    private String clickMarcaProduct = "//*[contains(@class, 'ui-search-carousel')]//*[contains(@class, 'slick-track')]/div/div/a/div";
 
     public ElejirMarcaMLPage(WebDriver driver) {
         super(driver);
     }
 
-    public void clickProductMarca(){
+    public void clickProductMarca(String marca){
+         String clickMarcaProduct = "//img[@alt=\""+marca+"\"]/ancestor::div[contains(@class,\"image-container\")]";
+
         clickElement(clickMarcaProduct);
     }
 }

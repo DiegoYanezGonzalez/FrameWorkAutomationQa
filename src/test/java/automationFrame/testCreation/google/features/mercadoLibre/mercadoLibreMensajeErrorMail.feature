@@ -8,7 +8,7 @@ Feature: Validar que al comprar un producto se muestre un mensaje de error de ma
     Given cuando estoy en la pagina de MercadoLibre
     When agrego un "<product>" al campo de texto
     And doi click en el boton buscar
-    And selecciono marca Hp
+    And selecciono marca "<marca>"
     And selecciono la primera opcion de los resultados
     And selecciono el boton comprar ahora
     And click en opcion Soy Nuevo
@@ -16,6 +16,8 @@ Feature: Validar que al comprar un producto se muestre un mensaje de error de ma
     Then se muestra un mensaje error
 
     Examples:
-      |product      |user |apellido|mail|pass
-      |notebooks    |asd|qwe   |a@b |qwerty
+      |product      |marca|user |apellido|mail|pass
+      |notebooks    |HP   |asd  |qwe      |a@b |qwerty
+      |notebooks    |Apple   |asd  |qwe      |a@b |qwerty
+
 
