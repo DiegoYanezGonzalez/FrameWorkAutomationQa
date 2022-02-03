@@ -17,5 +17,5 @@ Feature: Validar que al comprar un producto se muestre un mensaje de error de ma
 
     Examples:
       |product      |user |apellido|mail|pass
-      |notebooks    |asd  |qwe     |a@b |qwerty
+      |notebooks    |asd|qwe   |a@b |qwerty
 

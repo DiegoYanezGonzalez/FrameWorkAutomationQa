@@ -8,35 +8,34 @@ import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GooglePages extends SeleniumBase {
-
+public class TellotecPages extends SeleniumBase {
 
 
     //Atraibutos o Localizaodres
-    private String searchTextField = "//*[@name='q']";
-    private String searchButton = "/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]";
+    private String searchTextField = "//*[@name='s']";
+    private String searchButton = "//*[@id='ui-id-2']";
     private String searchResults = "//div[@class=\"g\"]//h3/a";
-    private String firtsResults = "//*[@id='rso']/div/div";
+    private String firtsResults = "//*[contains(@class, 'product-container')]/div[2]";
 
-    public GooglePages(WebDriver driver) {
+    public TellotecPages(WebDriver driver) {
         super(driver);
     }
 
     // Metodos KeywordDriven
 
 
-    public void navigateToGoogle(){
+    public void navigateToTellotec(){
 
-        navigateTo("https://www.google.cl");
+        navigateTo("https://www.tellotec.cl");
     }
 
 
-    public void enterSearchCriteria(String nameAnimal) throws InterruptedException {
-        writeTextWithEscape(searchTextField,nameAnimal);
+    public void enterSearchCriteria(String repuesto) throws InterruptedException {
+        writeTextWithEscape(searchTextField,repuesto);
 
     }
 
-    public void clickGoogleSearch(){
+    public void clickTellotecSearch(){
 
         clickElement(searchButton);
     }
@@ -51,8 +50,6 @@ public class GooglePages extends SeleniumBase {
         Assert.assertTrue(result.contains(inputText));
     }
 
-
-
     public List<String> getAllSearchResults(){
         List<WebElement> list = bringMeAllElements(searchResults);
         List<String> stringFromList = new ArrayList<String>();
@@ -63,8 +60,4 @@ public class GooglePages extends SeleniumBase {
         return stringFromList;
 
     }
-
-
-
-
 }

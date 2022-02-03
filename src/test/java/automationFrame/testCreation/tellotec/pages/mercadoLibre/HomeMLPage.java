@@ -17,6 +17,6 @@ public class HomeMLPage extends SeleniumBase {
     }
 
     public void cookiesAcceptep(){
-            clickElement(buttonCookie);
+        clickElement(buttonCookie);
     }
 }
